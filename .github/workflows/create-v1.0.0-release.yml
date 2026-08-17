@@ -40,3 +40,6 @@ jobs:
               --notes-file RELEASE_NOTES.md \
               --verify-tag
           fi
+
+      - name: Ready for client executable
+        run: echo "Release v1.0.0 ready - upload SolyvalEV1200.exe and ModbusMG.dll as assets."
