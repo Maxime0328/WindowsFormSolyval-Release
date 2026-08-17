@@ -1,0 +1,42 @@
+name: Create Solyval v1.0.0 release
+
+on:
+  push:
+    paths:
+      - '.github/workflows/create-v1.0.0-release.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Create tag v1.0.0
+        run: |
+          if git rev-parse "v1.0.0" >/dev/null 2>&1; then
+            echo "Tag v1.0.0 already exists."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git tag -a v1.0.0 -m "Solyval EV1200 Service v1.0.0"
+            git push origin v1.0.0
+          fi
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v1.0.0 >/dev/null 2>&1; then
+            echo "Release v1.0.0 already exists."
+          else
+            gh release create v1.0.0 \
+              --title "Solyval EV1200 Service v1.0.0" \
+              --notes-file RELEASE_NOTES.md \
+              --verify-tag
+          fi
