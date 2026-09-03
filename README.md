@@ -9,7 +9,7 @@ L'application a été créée comme **solution palliative de maintenance** autou
 > **Équipement : EV BAT 1200 N°3**  
 > **Communication : Modbus TCP**  
 > **Port standard : TCP 502**  
-> **Framework : .NET Framework 3.5**  
+> **Framework : .NET Framework 4.8**  
 > **Développeur : Maxime Gonthier (`Maxime0328`)**
 
 ---
@@ -35,7 +35,7 @@ Puis lancer :
 SolyvalEV1200.exe
 ```
 
-> ℹ️ Si Windows demande l'activation de **.NET Framework 3.5**, accepter l'installation de cette fonctionnalité Windows avant de relancer l'application.
+> ℹ️ Si Windows demande l'activation de **.NET Framework 4.8**, accepter l'installation de cette fonctionnalité Windows avant de relancer l'application.
 
 ### 🔗 Liens utiles
 
